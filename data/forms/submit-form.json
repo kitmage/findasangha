@@ -1,0 +1,1258 @@
+{
+  "key": "submit",
+  "title": "FaS Submit a Sangha",
+  "form_fields": {
+    "fields": [
+      {
+        "index": 0,
+        "element": "custom_html",
+        "attributes": [],
+        "settings": {
+          "html_codes": "<p>Every listing is checked by hand before it appears in the directory. Verification means we confirmed the sangha exists and its details are current; it never means endorsement of a teacher.</p><p>Home-based sanghas: you may leave the street address blank and list at city level only.</p>",
+          "conditional_logics": [],
+          "container_class": ""
+        },
+        "editor_options": {
+          "title": "Custom HTML",
+          "icon_class": "ff-edit-html",
+          "template": "customHTML"
+        },
+        "uniqElKey": "el_fas_008"
+      },
+      {
+        "index": 1,
+        "element": "input_text",
+        "attributes": {
+          "type": "text",
+          "name": "sangha_name",
+          "value": "",
+          "id": "",
+          "class": "",
+          "placeholder": ""
+        },
+        "settings": {
+          "container_class": "",
+          "label": "Sangha name",
+          "label_placement": "",
+          "admin_field_label": "Sangha name",
+          "help_message": "",
+          "validation_rules": {
+            "required": {
+              "value": true,
+              "message": "This field is required",
+              "global_message": "This field is required",
+              "global": true
+            }
+          },
+          "conditional_logics": []
+        },
+        "editor_options": {
+          "title": "Simple Text",
+          "icon_class": "ff-edit-text",
+          "template": "inputText"
+        },
+        "uniqElKey": "el_fas_009"
+      },
+      {
+        "index": 2,
+        "element": "textarea",
+        "attributes": {
+          "name": "description",
+          "value": "",
+          "id": "",
+          "class": "",
+          "placeholder": "",
+          "rows": 5,
+          "cols": 2
+        },
+        "settings": {
+          "container_class": "",
+          "label": "Description",
+          "admin_field_label": "Description",
+          "label_placement": "",
+          "help_message": "A sentence or two about the sangha, in plain language.",
+          "validation_rules": {
+            "required": {
+              "value": true,
+              "message": "This field is required",
+              "global_message": "This field is required",
+              "global": true
+            }
+          },
+          "conditional_logics": {
+            "type": "any",
+            "status": false,
+            "conditions": [
+              {
+                "field": "",
+                "value": "",
+                "operator": ""
+              }
+            ]
+          }
+        },
+        "editor_options": {
+          "title": "Text Area",
+          "icon_class": "ff-edit-textarea",
+          "template": "inputTextarea"
+        },
+        "uniqElKey": "el_fas_010"
+      },
+      {
+        "index": 3,
+        "element": "input_url",
+        "attributes": {
+          "autocomplete": "",
+          "type": "url",
+          "name": "website_url",
+          "value": "",
+          "class": "",
+          "placeholder": "https://"
+        },
+        "settings": {
+          "container_class": "",
+          "label": "Website",
+          "admin_field_label": "Website",
+          "label_placement": "",
+          "help_message": "",
+          "prefix_label": "",
+          "suffix_label": "",
+          "validation_rules": {
+            "required": {
+              "value": false,
+              "message": "This field is required",
+              "global_message": "This field is required",
+              "global": true
+            },
+            "url": {
+              "value": true,
+              "message": "This field must contain a valid url",
+              "global_message": "This field must contain a valid url",
+              "global": true
+            }
+          },
+          "conditional_logics": []
+        },
+        "editor_options": {
+          "title": "Website URL",
+          "icon_class": "ff-edit-website-url",
+          "template": "inputText"
+        },
+        "uniqElKey": "el_fas_011"
+      },
+      {
+        "index": 4,
+        "element": "input_email",
+        "attributes": {
+          "type": "email",
+          "name": "contact_email",
+          "value": "",
+          "id": "",
+          "class": "",
+          "placeholder": ""
+        },
+        "settings": {
+          "container_class": "",
+          "label": "Contact email",
+          "label_placement": "",
+          "help_message": "Used only for verification and updates. Never displayed publicly.",
+          "admin_field_label": "Contact email",
+          "validation_rules": {
+            "required": {
+              "value": true,
+              "message": "This field is required",
+              "global_message": "This field is required",
+              "global": true
+            },
+            "email": {
+              "value": true,
+              "message": "This field must contain a valid email",
+              "global_message": "This field must contain a valid email",
+              "global": true
+            }
+          },
+          "conditional_logics": []
+        },
+        "editor_options": {
+          "title": "Email Address",
+          "icon_class": "ff-edit-email",
+          "template": "inputText"
+        },
+        "uniqElKey": "el_fas_012"
+      },
+      {
+        "index": 5,
+        "element": "input_checkbox",
+        "attributes": {
+          "type": "checkbox",
+          "name": "formats",
+          "value": []
+        },
+        "settings": {
+          "dynamic_default_value": "",
+          "container_class": "",
+          "label": "Format",
+          "admin_field_label": "Format",
+          "label_placement": "",
+          "display_type": "",
+          "help_message": "",
+          "advanced_options": [
+            {
+              "label": "Online",
+              "value": "Online",
+              "calc_value": "",
+              "image": ""
+            },
+            {
+              "label": "In person",
+              "value": "In person",
+              "calc_value": "",
+              "image": ""
+            },
+            {
+              "label": "Hybrid",
+              "value": "Hybrid",
+              "calc_value": "",
+              "image": ""
+            }
+          ],
+          "calc_value_status": false,
+          "enable_image_input": false,
+          "values_visible": false,
+          "randomize_options": "no",
+          "enable_other_option": "no",
+          "other_option_label": "Other",
+          "other_option_placeholder": "Please specify...",
+          "other_option_required_message": "Please specify a value for the selected \"Other\" option",
+          "validation_rules": {
+            "required": {
+              "value": true,
+              "message": "This field is required",
+              "global_message": "This field is required",
+              "global": true
+            },
+            "max_selection": {
+              "value": "",
+              "message": "Maximum selection exceeds",
+              "global_message": "Maximum selection exceeds",
+              "global": true
+            },
+            "min_selection": {
+              "value": "",
+              "message": "Minimum selection is required",
+              "global_message": "Minimum selection is required",
+              "global": true
+            }
+          },
+          "conditional_logics": [],
+          "layout_class": ""
+        },
+        "editor_options": {
+          "title": "Checkbox",
+          "icon_class": "ff-edit-checkbox-1",
+          "template": "inputCheckable"
+        },
+        "uniqElKey": "el_fas_013"
+      },
+      {
+        "index": 6,
+        "element": "input_checkbox",
+        "attributes": {
+          "type": "checkbox",
+          "name": "traditions",
+          "value": []
+        },
+        "settings": {
+          "dynamic_default_value": "",
+          "container_class": "",
+          "label": "Tradition",
+          "admin_field_label": "Tradition",
+          "label_placement": "",
+          "display_type": "",
+          "help_message": "",
+          "advanced_options": [
+            {
+              "label": "Insight",
+              "value": "Insight",
+              "calc_value": "",
+              "image": ""
+            },
+            {
+              "label": "Mahayana",
+              "value": "Mahayana",
+              "calc_value": "",
+              "image": ""
+            },
+            {
+              "label": "Nichiren",
+              "value": "Nichiren",
+              "calc_value": "",
+              "image": ""
+            },
+            {
+              "label": "Non-sectarian",
+              "value": "Non-sectarian",
+              "calc_value": "",
+              "image": ""
+            },
+            {
+              "label": "Other",
+              "value": "Other",
+              "calc_value": "",
+              "image": ""
+            },
+            {
+              "label": "Plum Village",
+              "value": "Plum Village",
+              "calc_value": "",
+              "image": ""
+            },
+            {
+              "label": "Pure Land",
+              "value": "Pure Land",
+              "calc_value": "",
+              "image": ""
+            },
+            {
+              "label": "Theravada",
+              "value": "Theravada",
+              "calc_value": "",
+              "image": ""
+            },
+            {
+              "label": "Triratna",
+              "value": "Triratna",
+              "calc_value": "",
+              "image": ""
+            },
+            {
+              "label": "Vajrayana",
+              "value": "Vajrayana",
+              "calc_value": "",
+              "image": ""
+            },
+            {
+              "label": "Zen",
+              "value": "Zen",
+              "calc_value": "",
+              "image": ""
+            }
+          ],
+          "calc_value_status": false,
+          "enable_image_input": false,
+          "values_visible": false,
+          "randomize_options": "no",
+          "enable_other_option": "no",
+          "other_option_label": "Other",
+          "other_option_placeholder": "Please specify...",
+          "other_option_required_message": "Please specify a value for the selected \"Other\" option",
+          "validation_rules": {
+            "required": {
+              "value": true,
+              "message": "This field is required",
+              "global_message": "This field is required",
+              "global": true
+            },
+            "max_selection": {
+              "value": "",
+              "message": "Maximum selection exceeds",
+              "global_message": "Maximum selection exceeds",
+              "global": true
+            },
+            "min_selection": {
+              "value": "",
+              "message": "Minimum selection is required",
+              "global_message": "Minimum selection is required",
+              "global": true
+            }
+          },
+          "conditional_logics": [],
+          "layout_class": ""
+        },
+        "editor_options": {
+          "title": "Checkbox",
+          "icon_class": "ff-edit-checkbox-1",
+          "template": "inputCheckable"
+        },
+        "uniqElKey": "el_fas_014"
+      },
+      {
+        "index": 7,
+        "element": "input_text",
+        "attributes": {
+          "type": "text",
+          "name": "lineage",
+          "value": "",
+          "id": "",
+          "class": "",
+          "placeholder": ""
+        },
+        "settings": {
+          "container_class": "",
+          "label": "Lineage or school (optional)",
+          "label_placement": "",
+          "admin_field_label": "Lineage or school (optional)",
+          "help_message": "",
+          "validation_rules": {
+            "required": {
+              "value": false,
+              "message": "This field is required",
+              "global_message": "This field is required",
+              "global": true
+            }
+          },
+          "conditional_logics": []
+        },
+        "editor_options": {
+          "title": "Simple Text",
+          "icon_class": "ff-edit-text",
+          "template": "inputText"
+        },
+        "uniqElKey": "el_fas_015"
+      },
+      {
+        "index": 8,
+        "element": "input_text",
+        "attributes": {
+          "type": "text",
+          "name": "teacher",
+          "value": "",
+          "id": "",
+          "class": "",
+          "placeholder": ""
+        },
+        "settings": {
+          "container_class": "",
+          "label": "Teacher or facilitator (optional)",
+          "label_placement": "",
+          "admin_field_label": "Teacher or facilitator (optional)",
+          "help_message": "",
+          "validation_rules": {
+            "required": {
+              "value": false,
+              "message": "This field is required",
+              "global_message": "This field is required",
+              "global": true
+            }
+          },
+          "conditional_logics": []
+        },
+        "editor_options": {
+          "title": "Simple Text",
+          "icon_class": "ff-edit-text",
+          "template": "inputText"
+        },
+        "uniqElKey": "el_fas_016"
+      },
+      {
+        "index": 9,
+        "element": "input_text",
+        "attributes": {
+          "type": "text",
+          "name": "affiliation",
+          "value": "",
+          "id": "",
+          "class": "",
+          "placeholder": ""
+        },
+        "settings": {
+          "container_class": "",
+          "label": "Affiliation (optional)",
+          "label_placement": "",
+          "admin_field_label": "Affiliation (optional)",
+          "help_message": "Order, network, or parent organization, if any.",
+          "validation_rules": {
+            "required": {
+              "value": false,
+              "message": "This field is required",
+              "global_message": "This field is required",
+              "global": true
+            }
+          },
+          "conditional_logics": []
+        },
+        "editor_options": {
+          "title": "Simple Text",
+          "icon_class": "ff-edit-text",
+          "template": "inputText"
+        },
+        "uniqElKey": "el_fas_017"
+      },
+      {
+        "index": 10,
+        "element": "input_text",
+        "attributes": {
+          "type": "text",
+          "name": "meeting_day",
+          "value": "",
+          "id": "",
+          "class": "",
+          "placeholder": ""
+        },
+        "settings": {
+          "container_class": "",
+          "label": "Meeting day(s)",
+          "label_placement": "",
+          "admin_field_label": "Meeting day(s)",
+          "help_message": "e.g. Sundays; Tuesdays and Thursdays",
+          "validation_rules": {
+            "required": {
+              "value": false,
+              "message": "This field is required",
+              "global_message": "This field is required",
+              "global": true
+            }
+          },
+          "conditional_logics": []
+        },
+        "editor_options": {
+          "title": "Simple Text",
+          "icon_class": "ff-edit-text",
+          "template": "inputText"
+        },
+        "uniqElKey": "el_fas_018"
+      },
+      {
+        "index": 11,
+        "element": "input_text",
+        "attributes": {
+          "type": "text",
+          "name": "meeting_time",
+          "value": "",
+          "id": "",
+          "class": "",
+          "placeholder": ""
+        },
+        "settings": {
+          "container_class": "",
+          "label": "Meeting time",
+          "label_placement": "",
+          "admin_field_label": "Meeting time",
+          "help_message": "e.g. 9:00-10:30 am",
+          "validation_rules": {
+            "required": {
+              "value": false,
+              "message": "This field is required",
+              "global_message": "This field is required",
+              "global": true
+            }
+          },
+          "conditional_logics": []
+        },
+        "editor_options": {
+          "title": "Simple Text",
+          "icon_class": "ff-edit-text",
+          "template": "inputText"
+        },
+        "uniqElKey": "el_fas_019"
+      },
+      {
+        "index": 12,
+        "element": "input_text",
+        "attributes": {
+          "type": "text",
+          "name": "sangha_timezone",
+          "value": "",
+          "id": "",
+          "class": "",
+          "placeholder": ""
+        },
+        "settings": {
+          "container_class": "",
+          "label": "Sangha timezone",
+          "label_placement": "",
+          "admin_field_label": "Sangha timezone",
+          "help_message": "e.g. America/Chicago, America/New_York, Europe/London",
+          "validation_rules": {
+            "required": {
+              "value": true,
+              "message": "This field is required",
+              "global_message": "This field is required",
+              "global": true
+            }
+          },
+          "conditional_logics": []
+        },
+        "editor_options": {
+          "title": "Simple Text",
+          "icon_class": "ff-edit-text",
+          "template": "inputText"
+        },
+        "uniqElKey": "el_fas_020"
+      },
+      {
+        "index": 13,
+        "element": "input_text",
+        "attributes": {
+          "type": "text",
+          "name": "meeting_address",
+          "value": "",
+          "id": "",
+          "class": "",
+          "placeholder": ""
+        },
+        "settings": {
+          "container_class": "",
+          "label": "Street address (optional)",
+          "label_placement": "",
+          "admin_field_label": "Street address (optional)",
+          "help_message": "",
+          "validation_rules": {
+            "required": {
+              "value": false,
+              "message": "This field is required",
+              "global_message": "This field is required",
+              "global": true
+            }
+          },
+          "conditional_logics": []
+        },
+        "editor_options": {
+          "title": "Simple Text",
+          "icon_class": "ff-edit-text",
+          "template": "inputText"
+        },
+        "uniqElKey": "el_fas_021"
+      },
+      {
+        "index": 14,
+        "element": "input_text",
+        "attributes": {
+          "type": "text",
+          "name": "city",
+          "value": "",
+          "id": "",
+          "class": "",
+          "placeholder": ""
+        },
+        "settings": {
+          "container_class": "",
+          "label": "City",
+          "label_placement": "",
+          "admin_field_label": "City",
+          "help_message": "",
+          "validation_rules": {
+            "required": {
+              "value": true,
+              "message": "This field is required",
+              "global_message": "This field is required",
+              "global": true
+            }
+          },
+          "conditional_logics": []
+        },
+        "editor_options": {
+          "title": "Simple Text",
+          "icon_class": "ff-edit-text",
+          "template": "inputText"
+        },
+        "uniqElKey": "el_fas_022"
+      },
+      {
+        "index": 15,
+        "element": "input_text",
+        "attributes": {
+          "type": "text",
+          "name": "region",
+          "value": "",
+          "id": "",
+          "class": "",
+          "placeholder": ""
+        },
+        "settings": {
+          "container_class": "",
+          "label": "State / region (optional)",
+          "label_placement": "",
+          "admin_field_label": "State / region (optional)",
+          "help_message": "",
+          "validation_rules": {
+            "required": {
+              "value": false,
+              "message": "This field is required",
+              "global_message": "This field is required",
+              "global": true
+            }
+          },
+          "conditional_logics": []
+        },
+        "editor_options": {
+          "title": "Simple Text",
+          "icon_class": "ff-edit-text",
+          "template": "inputText"
+        },
+        "uniqElKey": "el_fas_023"
+      },
+      {
+        "index": 16,
+        "element": "input_text",
+        "attributes": {
+          "type": "text",
+          "name": "country",
+          "value": "",
+          "id": "",
+          "class": "",
+          "placeholder": ""
+        },
+        "settings": {
+          "container_class": "",
+          "label": "Country",
+          "label_placement": "",
+          "admin_field_label": "Country",
+          "help_message": "",
+          "validation_rules": {
+            "required": {
+              "value": true,
+              "message": "This field is required",
+              "global_message": "This field is required",
+              "global": true
+            }
+          },
+          "conditional_logics": []
+        },
+        "editor_options": {
+          "title": "Simple Text",
+          "icon_class": "ff-edit-text",
+          "template": "inputText"
+        },
+        "uniqElKey": "el_fas_024"
+      },
+      {
+        "index": 17,
+        "element": "input_text",
+        "attributes": {
+          "type": "text",
+          "name": "latitude",
+          "value": "",
+          "id": "",
+          "class": "",
+          "placeholder": ""
+        },
+        "settings": {
+          "container_class": "",
+          "label": "Latitude (optional)",
+          "label_placement": "",
+          "admin_field_label": "Latitude (optional)",
+          "help_message": "If you know it. We can look it up during verification.",
+          "validation_rules": {
+            "required": {
+              "value": false,
+              "message": "This field is required",
+              "global_message": "This field is required",
+              "global": true
+            }
+          },
+          "conditional_logics": []
+        },
+        "editor_options": {
+          "title": "Simple Text",
+          "icon_class": "ff-edit-text",
+          "template": "inputText"
+        },
+        "uniqElKey": "el_fas_025"
+      },
+      {
+        "index": 18,
+        "element": "input_text",
+        "attributes": {
+          "type": "text",
+          "name": "longitude",
+          "value": "",
+          "id": "",
+          "class": "",
+          "placeholder": ""
+        },
+        "settings": {
+          "container_class": "",
+          "label": "Longitude (optional)",
+          "label_placement": "",
+          "admin_field_label": "Longitude (optional)",
+          "help_message": "",
+          "validation_rules": {
+            "required": {
+              "value": false,
+              "message": "This field is required",
+              "global_message": "This field is required",
+              "global": true
+            }
+          },
+          "conditional_logics": []
+        },
+        "editor_options": {
+          "title": "Simple Text",
+          "icon_class": "ff-edit-text",
+          "template": "inputText"
+        },
+        "uniqElKey": "el_fas_026"
+      },
+      {
+        "index": 19,
+        "element": "input_checkbox",
+        "attributes": {
+          "type": "checkbox",
+          "name": "languages",
+          "value": []
+        },
+        "settings": {
+          "dynamic_default_value": "",
+          "container_class": "",
+          "label": "Languages",
+          "admin_field_label": "Languages",
+          "label_placement": "",
+          "display_type": "",
+          "help_message": "",
+          "advanced_options": [
+            {
+              "label": "English",
+              "value": "English",
+              "calc_value": "",
+              "image": ""
+            },
+            {
+              "label": "Spanish",
+              "value": "Spanish",
+              "calc_value": "",
+              "image": ""
+            },
+            {
+              "label": "Vietnamese",
+              "value": "Vietnamese",
+              "calc_value": "",
+              "image": ""
+            }
+          ],
+          "calc_value_status": false,
+          "enable_image_input": false,
+          "values_visible": false,
+          "randomize_options": "no",
+          "enable_other_option": "no",
+          "other_option_label": "Other",
+          "other_option_placeholder": "Please specify...",
+          "other_option_required_message": "Please specify a value for the selected \"Other\" option",
+          "validation_rules": {
+            "required": {
+              "value": false,
+              "message": "This field is required",
+              "global_message": "This field is required",
+              "global": true
+            },
+            "max_selection": {
+              "value": "",
+              "message": "Maximum selection exceeds",
+              "global_message": "Maximum selection exceeds",
+              "global": true
+            },
+            "min_selection": {
+              "value": "",
+              "message": "Minimum selection is required",
+              "global_message": "Minimum selection is required",
+              "global": true
+            }
+          },
+          "conditional_logics": [],
+          "layout_class": ""
+        },
+        "editor_options": {
+          "title": "Checkbox",
+          "icon_class": "ff-edit-checkbox-1",
+          "template": "inputCheckable"
+        },
+        "uniqElKey": "el_fas_027"
+      },
+      {
+        "index": 20,
+        "element": "input_text",
+        "attributes": {
+          "type": "text",
+          "name": "language_other",
+          "value": "",
+          "id": "",
+          "class": "",
+          "placeholder": ""
+        },
+        "settings": {
+          "container_class": "",
+          "label": "Other language (optional)",
+          "label_placement": "",
+          "admin_field_label": "Other language (optional)",
+          "help_message": "",
+          "validation_rules": {
+            "required": {
+              "value": false,
+              "message": "This field is required",
+              "global_message": "This field is required",
+              "global": true
+            }
+          },
+          "conditional_logics": []
+        },
+        "editor_options": {
+          "title": "Simple Text",
+          "icon_class": "ff-edit-text",
+          "template": "inputText"
+        },
+        "uniqElKey": "el_fas_028"
+      },
+      {
+        "index": 21,
+        "element": "input_checkbox",
+        "attributes": {
+          "type": "checkbox",
+          "name": "features",
+          "value": []
+        },
+        "settings": {
+          "dynamic_default_value": "",
+          "container_class": "",
+          "label": "Features",
+          "admin_field_label": "Features",
+          "label_placement": "",
+          "display_type": "",
+          "help_message": "",
+          "advanced_options": [
+            {
+              "label": "Beginner friendly",
+              "value": "Beginner friendly",
+              "calc_value": "",
+              "image": ""
+            },
+            {
+              "label": "Family friendly",
+              "value": "Family friendly",
+              "calc_value": "",
+              "image": ""
+            },
+            {
+              "label": "LGBTQ+ welcoming",
+              "value": "LGBTQ+ welcoming",
+              "calc_value": "",
+              "image": ""
+            },
+            {
+              "label": "Peer led",
+              "value": "Peer led",
+              "calc_value": "",
+              "image": ""
+            },
+            {
+              "label": "Prison or hospital outreach",
+              "value": "Prison or hospital outreach",
+              "calc_value": "",
+              "image": ""
+            },
+            {
+              "label": "Retreats",
+              "value": "Retreats",
+              "calc_value": "",
+              "image": ""
+            },
+            {
+              "label": "Teacher led",
+              "value": "Teacher led",
+              "calc_value": "",
+              "image": ""
+            },
+            {
+              "label": "Wheelchair accessible",
+              "value": "Wheelchair accessible",
+              "calc_value": "",
+              "image": ""
+            },
+            {
+              "label": "Young adult group",
+              "value": "Young adult group",
+              "calc_value": "",
+              "image": ""
+            }
+          ],
+          "calc_value_status": false,
+          "enable_image_input": false,
+          "values_visible": false,
+          "randomize_options": "no",
+          "enable_other_option": "no",
+          "other_option_label": "Other",
+          "other_option_placeholder": "Please specify...",
+          "other_option_required_message": "Please specify a value for the selected \"Other\" option",
+          "validation_rules": {
+            "required": {
+              "value": false,
+              "message": "This field is required",
+              "global_message": "This field is required",
+              "global": true
+            },
+            "max_selection": {
+              "value": "",
+              "message": "Maximum selection exceeds",
+              "global_message": "Maximum selection exceeds",
+              "global": true
+            },
+            "min_selection": {
+              "value": "",
+              "message": "Minimum selection is required",
+              "global_message": "Minimum selection is required",
+              "global": true
+            }
+          },
+          "conditional_logics": [],
+          "layout_class": ""
+        },
+        "editor_options": {
+          "title": "Checkbox",
+          "icon_class": "ff-edit-checkbox-1",
+          "template": "inputCheckable"
+        },
+        "uniqElKey": "el_fas_029"
+      },
+      {
+        "index": 22,
+        "element": "select",
+        "attributes": {
+          "autocomplete": "",
+          "name": "dana_model",
+          "value": "",
+          "id": "",
+          "class": ""
+        },
+        "settings": {
+          "dynamic_default_value": "",
+          "label": "Dana / cost model",
+          "admin_field_label": "Dana / cost model",
+          "help_message": "",
+          "container_class": "",
+          "label_placement": "",
+          "placeholder": "- Select -",
+          "advanced_options": [
+            {
+              "label": "Free, by donation",
+              "value": "Free, by donation",
+              "calc_value": ""
+            },
+            {
+              "label": "Suggested donation",
+              "value": "Suggested donation",
+              "calc_value": ""
+            },
+            {
+              "label": "Set fee",
+              "value": "Set fee",
+              "calc_value": ""
+            },
+            {
+              "label": "Membership based",
+              "value": "Membership based",
+              "calc_value": ""
+            },
+            {
+              "label": "Not applicable",
+              "value": "Not applicable",
+              "calc_value": ""
+            }
+          ],
+          "calc_value_status": false,
+          "enable_image_input": false,
+          "values_visible": false,
+          "enable_option_groups": "no",
+          "enable_select_2": "no",
+          "validation_rules": {
+            "required": {
+              "value": false,
+              "message": "This field is required",
+              "global_message": "This field is required",
+              "global": true
+            }
+          },
+          "conditional_logics": [],
+          "randomize_options": "no"
+        },
+        "editor_options": {
+          "title": "Dropdown",
+          "icon_class": "ff-edit-dropdown",
+          "element": "select",
+          "template": "select"
+        },
+        "uniqElKey": "el_fas_030"
+      },
+      {
+        "index": 23,
+        "element": "input_url",
+        "attributes": {
+          "autocomplete": "",
+          "type": "url",
+          "name": "source_url",
+          "value": "",
+          "class": "",
+          "placeholder": "https://"
+        },
+        "settings": {
+          "container_class": "",
+          "label": "Verification source (optional)",
+          "admin_field_label": "Verification source (optional)",
+          "label_placement": "",
+          "help_message": "A page where we can confirm these details, if the website above does not cover them.",
+          "prefix_label": "",
+          "suffix_label": "",
+          "validation_rules": {
+            "required": {
+              "value": false,
+              "message": "This field is required",
+              "global_message": "This field is required",
+              "global": true
+            },
+            "url": {
+              "value": true,
+              "message": "This field must contain a valid url",
+              "global_message": "This field must contain a valid url",
+              "global": true
+            }
+          },
+          "conditional_logics": []
+        },
+        "editor_options": {
+          "title": "Website URL",
+          "icon_class": "ff-edit-website-url",
+          "template": "inputText"
+        },
+        "uniqElKey": "el_fas_031"
+      },
+      {
+        "index": 24,
+        "element": "input_checkbox",
+        "attributes": {
+          "type": "checkbox",
+          "name": "newsletter_optin",
+          "value": []
+        },
+        "settings": {
+          "dynamic_default_value": "",
+          "container_class": "",
+          "label": "",
+          "admin_field_label": "Newsletter opt-in",
+          "label_placement": "",
+          "display_type": "",
+          "help_message": "",
+          "advanced_options": [
+            {
+              "label": "Email me occasional Find a Sangha updates. (Optional. This is the only marketing email we send, and you can unsubscribe any time.)",
+              "value": "yes",
+              "calc_value": "",
+              "image": ""
+            }
+          ],
+          "calc_value_status": false,
+          "enable_image_input": false,
+          "values_visible": false,
+          "randomize_options": "no",
+          "enable_other_option": "no",
+          "other_option_label": "Other",
+          "other_option_placeholder": "Please specify...",
+          "other_option_required_message": "Please specify a value for the selected \"Other\" option",
+          "validation_rules": {
+            "required": {
+              "value": false,
+              "message": "This field is required",
+              "global_message": "This field is required",
+              "global": true
+            },
+            "max_selection": {
+              "value": "",
+              "message": "Maximum selection exceeds",
+              "global_message": "Maximum selection exceeds",
+              "global": true
+            },
+            "min_selection": {
+              "value": "",
+              "message": "Minimum selection is required",
+              "global_message": "Minimum selection is required",
+              "global": true
+            }
+          },
+          "conditional_logics": [],
+          "layout_class": ""
+        },
+        "editor_options": {
+          "title": "Checkbox",
+          "icon_class": "ff-edit-checkbox-1",
+          "template": "inputCheckable"
+        },
+        "uniqElKey": "el_fas_032"
+      }
+    ],
+    "submitButton": {
+      "uniqElKey": "el_1524065200616",
+      "element": "button",
+      "attributes": {
+        "type": "submit",
+        "class": ""
+      },
+      "settings": {
+        "align": "left",
+        "button_style": "default",
+        "container_class": "",
+        "help_message": "",
+        "background_color": "#1a7efb",
+        "button_size": "md",
+        "color": "#ffffff",
+        "button_ui": {
+          "type": "default",
+          "text": "Submit for review",
+          "img_url": ""
+        }
+      },
+      "editor_options": {
+        "title": "Submit Button"
+      }
+    }
+  },
+  "formSettings": {
+    "confirmation": {
+      "redirectTo": "samePage",
+      "messageToShow": "Thank you. Your listing was received and is waiting for a hand check. It will appear in the directory once it is verified.",
+      "customPage": null,
+      "samePageFormBehavior": "hide_form",
+      "customUrl": null
+    },
+    "restrictions": {
+      "limitNumberOfEntries": {
+        "enabled": false,
+        "numberOfEntries": null,
+        "period": "total",
+        "limitReachedMsg": "Maximum number of entries exceeded."
+      },
+      "scheduleForm": {
+        "enabled": false,
+        "start": null,
+        "end": null,
+        "selectedDays": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "pendingMsg": "Form submission is not started yet.",
+        "expiredMsg": "Form submission is now closed."
+      },
+      "requireLogin": {
+        "enabled": true,
+        "requireLoginMsg": "Please sign in before submitting. No account yet? Create one free on the Create Account page, then come back here."
+      },
+      "denyEmptySubmission": {
+        "enabled": false,
+        "message": "Sorry, you cannot submit an empty form."
+      }
+    },
+    "layout": {
+      "labelPlacement": "top",
+      "helpMessagePlacement": "with_label",
+      "errorMessagePlacement": "inline",
+      "asteriskPlacement": "asterisk-right"
+    },
+    "delete_entry_on_submission": "no",
+    "appendSurveyResult": {
+      "enabled": false,
+      "showLabel": false,
+      "showCount": false
+    }
+  }
+}

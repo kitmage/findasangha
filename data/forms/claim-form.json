@@ -1,0 +1,423 @@
+{
+  "key": "claim",
+  "title": "FaS Claim a Listing",
+  "form_fields": {
+    "fields": [
+      {
+        "index": 0,
+        "element": "custom_html",
+        "attributes": [],
+        "settings": {
+          "html_codes": "<p>Claiming a listing lets you keep your sangha's details current. Claims are reviewed by hand. We usually verify by email at an address on the sangha's own website, or by a link placed on that site.</p>",
+          "conditional_logics": [],
+          "container_class": ""
+        },
+        "editor_options": {
+          "title": "Custom HTML",
+          "icon_class": "ff-edit-html",
+          "template": "customHTML"
+        },
+        "uniqElKey": "el_fas_033"
+      },
+      {
+        "index": 1,
+        "element": "input_text",
+        "attributes": {
+          "type": "text",
+          "name": "listing_ref",
+          "value": "",
+          "id": "",
+          "class": "",
+          "placeholder": ""
+        },
+        "settings": {
+          "container_class": "",
+          "label": "Listing name or findasangha.com URL",
+          "label_placement": "",
+          "admin_field_label": "Listing name or findasangha.com URL",
+          "help_message": "",
+          "validation_rules": {
+            "required": {
+              "value": true,
+              "message": "This field is required",
+              "global_message": "This field is required",
+              "global": true
+            }
+          },
+          "conditional_logics": []
+        },
+        "editor_options": {
+          "title": "Simple Text",
+          "icon_class": "ff-edit-text",
+          "template": "inputText"
+        },
+        "uniqElKey": "el_fas_034"
+      },
+      {
+        "index": 2,
+        "element": "input_text",
+        "attributes": {
+          "type": "text",
+          "name": "claimant_name",
+          "value": "",
+          "id": "",
+          "class": "",
+          "placeholder": ""
+        },
+        "settings": {
+          "container_class": "",
+          "label": "Your name",
+          "label_placement": "",
+          "admin_field_label": "Your name",
+          "help_message": "",
+          "validation_rules": {
+            "required": {
+              "value": true,
+              "message": "This field is required",
+              "global_message": "This field is required",
+              "global": true
+            }
+          },
+          "conditional_logics": []
+        },
+        "editor_options": {
+          "title": "Simple Text",
+          "icon_class": "ff-edit-text",
+          "template": "inputText"
+        },
+        "uniqElKey": "el_fas_035"
+      },
+      {
+        "index": 3,
+        "element": "input_email",
+        "attributes": {
+          "type": "email",
+          "name": "claimant_email",
+          "value": "",
+          "id": "",
+          "class": "",
+          "placeholder": ""
+        },
+        "settings": {
+          "container_class": "",
+          "label": "Your email",
+          "label_placement": "",
+          "help_message": "An address at the sangha's own domain speeds verification up.",
+          "admin_field_label": "Your email",
+          "validation_rules": {
+            "required": {
+              "value": true,
+              "message": "This field is required",
+              "global_message": "This field is required",
+              "global": true
+            },
+            "email": {
+              "value": true,
+              "message": "This field must contain a valid email",
+              "global_message": "This field must contain a valid email",
+              "global": true
+            }
+          },
+          "conditional_logics": []
+        },
+        "editor_options": {
+          "title": "Email Address",
+          "icon_class": "ff-edit-email",
+          "template": "inputText"
+        },
+        "uniqElKey": "el_fas_036"
+      },
+      {
+        "index": 4,
+        "element": "select",
+        "attributes": {
+          "autocomplete": "",
+          "name": "claimant_role",
+          "value": "",
+          "id": "",
+          "class": ""
+        },
+        "settings": {
+          "dynamic_default_value": "",
+          "label": "Your connection to this sangha",
+          "admin_field_label": "Your connection to this sangha",
+          "help_message": "",
+          "container_class": "",
+          "label_placement": "",
+          "placeholder": "- Select -",
+          "advanced_options": [
+            {
+              "label": "Teacher or facilitator",
+              "value": "Teacher or facilitator",
+              "calc_value": ""
+            },
+            {
+              "label": "Organizer or volunteer",
+              "value": "Organizer or volunteer",
+              "calc_value": ""
+            },
+            {
+              "label": "Member of the sangha",
+              "value": "Member of the sangha",
+              "calc_value": ""
+            },
+            {
+              "label": "Other",
+              "value": "Other",
+              "calc_value": ""
+            }
+          ],
+          "calc_value_status": false,
+          "enable_image_input": false,
+          "values_visible": false,
+          "enable_option_groups": "no",
+          "enable_select_2": "no",
+          "validation_rules": {
+            "required": {
+              "value": true,
+              "message": "This field is required",
+              "global_message": "This field is required",
+              "global": true
+            }
+          },
+          "conditional_logics": [],
+          "randomize_options": "no"
+        },
+        "editor_options": {
+          "title": "Dropdown",
+          "icon_class": "ff-edit-dropdown",
+          "element": "select",
+          "template": "select"
+        },
+        "uniqElKey": "el_fas_037"
+      },
+      {
+        "index": 5,
+        "element": "input_url",
+        "attributes": {
+          "autocomplete": "",
+          "type": "url",
+          "name": "evidence_url",
+          "value": "",
+          "class": "",
+          "placeholder": "https://"
+        },
+        "settings": {
+          "container_class": "",
+          "label": "Evidence link (optional)",
+          "admin_field_label": "Evidence link (optional)",
+          "label_placement": "",
+          "help_message": "A page that shows your connection to the sangha, if you have one.",
+          "prefix_label": "",
+          "suffix_label": "",
+          "validation_rules": {
+            "required": {
+              "value": false,
+              "message": "This field is required",
+              "global_message": "This field is required",
+              "global": true
+            },
+            "url": {
+              "value": true,
+              "message": "This field must contain a valid url",
+              "global_message": "This field must contain a valid url",
+              "global": true
+            }
+          },
+          "conditional_logics": []
+        },
+        "editor_options": {
+          "title": "Website URL",
+          "icon_class": "ff-edit-website-url",
+          "template": "inputText"
+        },
+        "uniqElKey": "el_fas_038"
+      },
+      {
+        "index": 6,
+        "element": "textarea",
+        "attributes": {
+          "name": "message",
+          "value": "",
+          "id": "",
+          "class": "",
+          "placeholder": "",
+          "rows": 4,
+          "cols": 2
+        },
+        "settings": {
+          "container_class": "",
+          "label": "Anything we should know",
+          "admin_field_label": "Anything we should know",
+          "label_placement": "",
+          "help_message": "Corrections to the listing are welcome here too.",
+          "validation_rules": {
+            "required": {
+              "value": true,
+              "message": "This field is required",
+              "global_message": "This field is required",
+              "global": true
+            }
+          },
+          "conditional_logics": {
+            "type": "any",
+            "status": false,
+            "conditions": [
+              {
+                "field": "",
+                "value": "",
+                "operator": ""
+              }
+            ]
+          }
+        },
+        "editor_options": {
+          "title": "Text Area",
+          "icon_class": "ff-edit-textarea",
+          "template": "inputTextarea"
+        },
+        "uniqElKey": "el_fas_039"
+      },
+      {
+        "index": 7,
+        "element": "input_checkbox",
+        "attributes": {
+          "type": "checkbox",
+          "name": "newsletter_optin",
+          "value": []
+        },
+        "settings": {
+          "dynamic_default_value": "",
+          "container_class": "",
+          "label": "",
+          "admin_field_label": "Newsletter opt-in",
+          "label_placement": "",
+          "display_type": "",
+          "help_message": "",
+          "advanced_options": [
+            {
+              "label": "Email me occasional Find a Sangha updates. (Optional. This is the only marketing email we send, and you can unsubscribe any time.)",
+              "value": "yes",
+              "calc_value": "",
+              "image": ""
+            }
+          ],
+          "calc_value_status": false,
+          "enable_image_input": false,
+          "values_visible": false,
+          "randomize_options": "no",
+          "enable_other_option": "no",
+          "other_option_label": "Other",
+          "other_option_placeholder": "Please specify...",
+          "other_option_required_message": "Please specify a value for the selected \"Other\" option",
+          "validation_rules": {
+            "required": {
+              "value": false,
+              "message": "This field is required",
+              "global_message": "This field is required",
+              "global": true
+            },
+            "max_selection": {
+              "value": "",
+              "message": "Maximum selection exceeds",
+              "global_message": "Maximum selection exceeds",
+              "global": true
+            },
+            "min_selection": {
+              "value": "",
+              "message": "Minimum selection is required",
+              "global_message": "Minimum selection is required",
+              "global": true
+            }
+          },
+          "conditional_logics": [],
+          "layout_class": ""
+        },
+        "editor_options": {
+          "title": "Checkbox",
+          "icon_class": "ff-edit-checkbox-1",
+          "template": "inputCheckable"
+        },
+        "uniqElKey": "el_fas_040"
+      }
+    ],
+    "submitButton": {
+      "uniqElKey": "el_1524065200616",
+      "element": "button",
+      "attributes": {
+        "type": "submit",
+        "class": ""
+      },
+      "settings": {
+        "align": "left",
+        "button_style": "default",
+        "container_class": "",
+        "help_message": "",
+        "background_color": "#1a7efb",
+        "button_size": "md",
+        "color": "#ffffff",
+        "button_ui": {
+          "type": "default",
+          "text": "Send claim",
+          "img_url": ""
+        }
+      },
+      "editor_options": {
+        "title": "Submit Button"
+      }
+    }
+  },
+  "formSettings": {
+    "confirmation": {
+      "redirectTo": "samePage",
+      "messageToShow": "Thank you. Your claim was received. Claims are reviewed by hand, and we will email you with the outcome.",
+      "customPage": null,
+      "samePageFormBehavior": "hide_form",
+      "customUrl": null
+    },
+    "restrictions": {
+      "limitNumberOfEntries": {
+        "enabled": false,
+        "numberOfEntries": null,
+        "period": "total",
+        "limitReachedMsg": "Maximum number of entries exceeded."
+      },
+      "scheduleForm": {
+        "enabled": false,
+        "start": null,
+        "end": null,
+        "selectedDays": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "pendingMsg": "Form submission is not started yet.",
+        "expiredMsg": "Form submission is now closed."
+      },
+      "requireLogin": {
+        "enabled": true,
+        "requireLoginMsg": "Please sign in before claiming. No account yet? Create one free on the Create Account page, then come back here."
+      },
+      "denyEmptySubmission": {
+        "enabled": false,
+        "message": "Sorry, you cannot submit an empty form."
+      }
+    },
+    "layout": {
+      "labelPlacement": "top",
+      "helpMessagePlacement": "with_label",
+      "errorMessagePlacement": "inline",
+      "asteriskPlacement": "asterisk-right"
+    },
+    "delete_entry_on_submission": "no",
+    "appendSurveyResult": {
+      "enabled": false,
+      "showLabel": false,
+      "showCount": false
+    }
+  }
+}
