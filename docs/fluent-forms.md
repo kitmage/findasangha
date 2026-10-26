@@ -16,9 +16,12 @@ source of truth for listings, verification, and moderation.
   explicit opt-in box on a form. The contact joins the "Find a Sangha Updates"
   list with a source tag (Registered account / Listing submitter / Listing
   claimant), status `subscribed` (consent was explicit in the form).
-- Fluent Forms Pro and FluentCRM Pro are NOT required for this flow. Pro
-  becomes interesting later (builder-managed post feeds, CRM email sequences
-  and conditionals for the 180-day reconfirmation cycle).
+- Fluent Forms Pro and FluentCRM Pro were added by Mike on 2026-10-26 (both
+  active, versions matched to the cores). This flow does not depend on them:
+  the handler stays because it enforces directory rules the native feeds
+  cannot. Pro is there for later work, mainly CRM email sequences and
+  conditionals for the 180-day reconfirmation cycle, and file uploads if
+  claims ever need evidence files.
 
 ## The forms
 
