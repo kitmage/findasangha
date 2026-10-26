@@ -57,7 +57,7 @@ ensure_page "Add Your Sangha" "add-your-sangha" "Public submissions open at laun
 ensure_page "Claim Your Listing" "claim-your-listing" "If your sangha is listed and you represent it, you will be able to claim the listing so you can keep its details current. Claims open at launch." >/dev/null
 ensure_page "How Verification Works" "how-verification-works" "Verified means a listing existed and its details were current when checked. It never means endorsement of a teacher or a teaching. Listings are reconfirmed on a regular cycle." >/dev/null
 ensure_page "Review Guidelines" "review-guidelines" "Reviews are firsthand experience only, written in the spirit of Right Speech. No doctrinal verdicts. Structured answers first, free text second. Reviews open after launch." >/dev/null
-ensure_page "About" "about" "Find a Sangha is a global directory of Buddhist sanghas, built to help practitioners find community wherever they live. It is a separate project from Virtual Sangha, which is one of its founding listings." >/dev/null
+ensure_page "About" "about" "Find a Sangha is a global directory of Buddhist sanghas, built to help practitioners find community wherever they live." >/dev/null
 ensure_page "Contact" "contact" "Contact details for the directory team will be published here before launch." >/dev/null
 ensure_page "Privacy" "privacy" "Privacy policy placeholder. Key commitments: contact emails are never displayed raw, and home-based sanghas may list at city level only, with no exact address and no home map pin." >/dev/null
 ensure_page "Terms" "terms" "Terms of use placeholder, to be completed before public launch." >/dev/null
