@@ -4,7 +4,7 @@ Theme URI: https://findasangha.com
 Description: Child theme for Find a Sangha. Presentation only; all directory data and logic live in the fas-directory plugin.
 Author: Find a Sangha
 Template: twentytwentyfive
-Version: 0.2.0
+Version: 0.2.1
 License: GPL-2.0-or-later
 Text Domain: fas-child
 */
@@ -104,8 +104,14 @@ Text Domain: fas-child
 .fluentform .ff-el-form-control:focus { border-color: var(--fas-moss); box-shadow: 0 0 0 3px var(--fas-moss-tint); outline: none; }
 .fluentform .ff-el-form-description { color: var(--fas-ink-soft); }
 .fluentform input[type="checkbox"], .fluentform input[type="radio"] { accent-color: var(--fas-moss); }
+.fluentform { --fluentform-primary: #4A6B45; }
 .fluentform .ff-btn-submit { background: var(--fas-moss); border: 0; border-radius: 999px; color: #fff; cursor: pointer; font-size: 1rem; font-weight: 700; padding: 0.75rem 1.6rem; }
 .fluentform .ff-btn-submit:hover { background: var(--fas-moss-deep); }
+/* Fluent prints its own .ff-btn-submit:not(.ff_btn_no_style) rule inline in the
+   page body, after the theme stylesheet; outrank it on specificity. */
+.fluentform .ff-btn-submit:not(.ff_btn_no_style) { background-color: var(--fas-moss); }
+.fluentform .ff-btn-submit:not(.ff_btn_no_style):hover { background-color: var(--fas-moss-deep); }
+.fluentform .ff-el-tooltip { color: var(--fas-moss-deep); }
 .fluentform .ff-el-section-break hr { border-color: var(--fas-line); }
 
 @media (max-width: 640px) {
