@@ -204,15 +204,17 @@ add_shortcode('fas_filter_form', function ($atts) {
 // Filtered results for the Browse page and the /sanghas/ archive template.
 // (The archive uses this instead of a query loop: a shortcode inside a block
 // query loop does not receive each iteration's post, so card meta went stale.)
-add_shortcode('fas_results', function () {
+add_shortcode('fas_results', function ($atts) {
+    $atts = shortcode_atts(array('limit' => 0), is_array($atts) ? $atts : array());
+    $limit = max(0, intval($atts['limit']));
     $p = fas_filter_params();
     $on_archive = is_post_type_archive('sangha_listing');
     $page = $on_archive ? max(1, intval(get_query_var('paged'))) : (isset($_GET['fpage']) ? max(1, intval($_GET['fpage'])) : 1);
     $args = array(
         'post_type' => 'sangha_listing',
         'post_status' => 'publish',
-        'posts_per_page' => 20,
-        'paged' => $page,
+        'posts_per_page' => $limit > 0 ? $limit : 20,
+        'paged' => $limit > 0 ? 1 : $page,
     );
     if ($p['keyword'] !== '') {
         $args['s'] = $p['keyword'];
@@ -237,7 +239,7 @@ add_shortcode('fas_results', function () {
     }
     $html .= '</div>';
     $total = $q->max_num_pages;
-    if ($total > 1) {
+    if ($total > 1 && $limit === 0) {
         $filter_args = array_filter(array(
             'f_keyword' => $p['keyword'], 'f_tradition' => $p['tradition'], 'f_format' => $p['format'],
             'f_language' => $p['language'], 'f_country' => $p['country']));

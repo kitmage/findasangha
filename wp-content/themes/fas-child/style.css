@@ -4,31 +4,114 @@ Theme URI: https://findasangha.com
 Description: Child theme for Find a Sangha. Presentation only; all directory data and logic live in the fas-directory plugin.
 Author: Find a Sangha
 Template: twentytwentyfive
-Version: 0.1.0
+Version: 0.2.0
 License: GPL-2.0-or-later
 Text Domain: fas-child
 */
 
-/* FaS directory presentation (data and logic live in the fas-directory plugin) */
-.fas-filter { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: end; margin: 1.25rem 0; }
-.fas-filter-field { display: flex; flex-direction: column; gap: 0.25rem; font-size: 0.9rem; }
-.fas-filter-field select, .fas-filter-field input { padding: 0.45rem 0.6rem; border: 1px solid #bbb; border-radius: 6px; background: #fff; }
-.fas-filter-keyword { flex: 1 1 220px; }
-.fas-filter-submit { padding: 0.55rem 1rem; border: 0; border-radius: 6px; background: #333; color: #fff; cursor: pointer; }
+/* Find a Sangha design system: "Paper and moss" (decided 2026-10-26).
+   Palette and type tokens live in theme.json; this file styles the
+   components the tokens cannot reach. See docs/design.md. */
+
+:root {
+  --fas-paper: var(--wp--preset--color--paper);
+  --fas-paper-deep: var(--wp--preset--color--paper-deep);
+  --fas-sand: var(--wp--preset--color--sand);
+  --fas-line: var(--wp--preset--color--line);
+  --fas-ink: var(--wp--preset--color--ink);
+  --fas-ink-soft: var(--wp--preset--color--ink-soft);
+  --fas-moss: var(--wp--preset--color--moss);
+  --fas-moss-deep: var(--wp--preset--color--moss-deep);
+  --fas-moss-tint: var(--wp--preset--color--moss-tint);
+  --fas-serif: var(--wp--preset--font-family--fas-serif);
+}
+
+::selection { background: var(--fas-moss-tint); }
+:focus-visible { outline: 2px solid var(--fas-moss); outline-offset: 2px; }
+
+/* Header and wordmark */
+.fas-site-header { border-bottom: 1px solid var(--fas-line); padding: 0.9rem 0; }
+.fas-wordmark { display: inline-flex; align-items: center; gap: 0.55rem; color: var(--fas-ink); text-decoration: none; font-family: var(--fas-serif); font-size: 1.45rem; font-weight: 600; letter-spacing: 0.01em; }
+.fas-wordmark:hover { color: var(--fas-moss-deep); }
+.fas-wordmark svg { flex: none; display: block; }
+.fas-main-nav .wp-block-navigation-item__content { text-decoration: none; }
+.fas-main-nav .wp-block-navigation-item__content:hover { color: var(--fas-moss-deep); text-decoration: underline; text-underline-offset: 0.25em; }
+
+/* Footer */
+.fas-site-footer { border-top: 1px solid var(--fas-line); margin-top: 3.5rem; padding: 2.25rem 0 2.75rem; color: var(--fas-ink-soft); }
+.fas-footer-brand { font-family: var(--fas-serif); font-size: 1.25rem; font-weight: 600; color: var(--fas-ink); margin-bottom: 0.25rem; }
+.fas-site-footer .wp-block-navigation { margin: 1rem 0; }
+.fas-site-footer .wp-block-navigation-item__content { text-decoration: none; }
+.fas-site-footer .wp-block-navigation-item__content:hover { color: var(--fas-moss-deep); text-decoration: underline; text-underline-offset: 0.25em; }
+.fas-footer-fine { font-size: 0.85rem; margin-bottom: 0; }
+
+/* Home hero */
+.fas-hero { background: var(--fas-paper-deep); border-bottom: 1px solid var(--fas-line); padding: 3rem 0 2.75rem; }
+.fas-hero h1 { max-width: 15ch; margin-top: 0; }
+.fas-lede { font-size: 1.15rem; color: var(--fas-ink-soft); max-width: 44rem; }
+.fas-quick-links { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.25rem 0 0; }
+.fas-quick-links a { background: var(--fas-paper); border: 1px solid var(--fas-line); border-radius: 999px; color: var(--fas-ink); font-size: 0.9rem; font-weight: 600; padding: 0.35rem 0.85rem; text-decoration: none; }
+.fas-quick-links a:hover { background: var(--fas-moss-tint); border-color: var(--fas-moss); color: var(--fas-moss-deep); }
+.fas-home-section { margin-top: 2.75rem; }
+.fas-cta { background: var(--fas-paper-deep); border: 1px solid var(--fas-line); border-radius: 16px; padding: 1.75rem; margin-top: 2.75rem; }
+.fas-cta h2 { margin-top: 0; }
+
+/* Filter form: the search panel */
+.fas-filter { display: flex; flex-wrap: wrap; gap: 0.8rem; align-items: end; background: #fff; border: 1px solid var(--fas-line); border-radius: 16px; box-shadow: 0 1px 2px rgba(46, 42, 35, 0.05), 0 10px 28px -20px rgba(46, 42, 35, 0.35); margin: 1.25rem 0; padding: 1.1rem; }
+.fas-filter-field { display: flex; flex-direction: column; gap: 0.3rem; flex: 1 1 132px; font-size: 0.95rem; }
+.fas-filter-field > span { color: var(--fas-ink-soft); font-size: 0.76rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+.fas-filter-field select, .fas-filter-field input { background: #fff; border: 1px solid var(--fas-line); border-radius: 10px; color: var(--fas-ink); font: inherit; min-height: 44px; padding: 0.55rem 0.7rem; width: 100%; }
+.fas-filter-field select:focus, .fas-filter-field input:focus { border-color: var(--fas-moss); outline: 2px solid var(--fas-moss-tint); outline-offset: 0; }
+.fas-filter-keyword { flex: 1 1 210px; }
+.fas-filter-submit { background: var(--fas-moss); border: 0; border-radius: 999px; color: #fff; cursor: pointer; font: inherit; font-weight: 700; min-height: 44px; padding: 0.65rem 1.35rem; }
+.fas-filter-submit:hover { background: var(--fas-moss-deep); }
 .fas-filter-clear { align-self: center; font-size: 0.9rem; }
-.fas-chips { display: flex; flex-wrap: wrap; gap: 0.35rem; margin: 0.4rem 0; }
-.fas-chip { font-size: 0.78rem; padding: 0.15rem 0.55rem; border-radius: 999px; background: #f0ead9; color: #4a4232; }
-.fas-chip-format { background: #e3ecdf; color: #33482e; }
-.fas-card { border: 1px solid #e2e2e2; border-radius: 10px; padding: 1rem 1.1rem; margin-bottom: 1rem; background: #fff; }
-.fas-card-title { margin: 0 0 0.25rem; }
-.fas-card-location { margin: 0.15rem 0; font-weight: 600; }
-.fas-card-excerpt { margin: 0.4rem 0 0; }
-.fas-details { border-top: 2px solid #f0ead9; margin-top: 1.5rem; padding-top: 1rem; }
-.fas-details-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.6rem 1.5rem; margin: 0 0 0.75rem; }
-.fas-detail dt { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: #666; }
-.fas-detail dd { margin: 0.15rem 0 0; }
-.fas-verified { background: #e3ecdf; border-radius: 8px; padding: 0.6rem 0.8rem; }
-.fas-confirmed, .fas-source { font-size: 0.9rem; color: #555; overflow-wrap: anywhere; }
-.fas-pagination { margin: 1rem 0; display: flex; gap: 0.5rem; }
-.fas-page-current { font-weight: 700; }
-.fas-no-results { border: 1px dashed #bbb; border-radius: 10px; padding: 1rem 1.1rem; }
+
+/* Listing cards */
+.fas-results { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; margin: 1rem 0; }
+.fas-card { background: #fff; border: 1px solid var(--fas-line); border-radius: 14px; display: flex; flex-direction: column; margin: 0; padding: 1.15rem 1.2rem; transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease; }
+.fas-card:hover { border-color: var(--fas-moss); box-shadow: 0 10px 26px -20px rgba(46, 42, 35, 0.45); transform: translateY(-2px); }
+.fas-card-title { font-size: 1.25rem; margin: 0 0 0.2rem; }
+.fas-card-title a { color: var(--fas-ink); text-decoration: none; }
+.fas-card-title a:hover { color: var(--fas-moss-deep); text-decoration: underline; text-underline-offset: 0.2em; }
+.fas-card-location { color: var(--fas-ink-soft); font-size: 0.95rem; font-weight: 600; margin: 0.1rem 0 0; }
+.fas-card-excerpt { color: var(--fas-ink-soft); margin: 0.45rem 0 0; }
+.fas-chips { display: flex; flex-wrap: wrap; gap: 0.35rem; margin: 0.55rem 0 0; }
+.fas-chip { background: var(--fas-sand); border-radius: 999px; color: var(--fas-ink-soft); font-size: 0.78rem; font-weight: 600; padding: 0.15rem 0.6rem; }
+.fas-chip-format { background: var(--fas-moss-tint); color: var(--fas-moss-deep); }
+
+/* Pagination and empty state */
+.fas-pagination { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1.25rem 0; }
+.fas-pagination a, .fas-page-current { background: #fff; border: 1px solid var(--fas-line); border-radius: 999px; padding: 0.3rem 0.85rem; text-decoration: none; }
+.fas-page-current { background: var(--fas-moss); border-color: var(--fas-moss); color: #fff; font-weight: 700; }
+.fas-no-results { background: var(--fas-paper-deep); border: 1px dashed var(--fas-line); border-radius: 14px; padding: 1.1rem 1.2rem; }
+
+/* Single listing details */
+.fas-details { background: #fff; border: 1px solid var(--fas-line); border-radius: 14px; margin-top: 1.75rem; padding: 1.3rem 1.35rem; }
+.fas-details-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.9rem 1.5rem; margin: 0 0 0.75rem; }
+.fas-detail dt { color: var(--fas-ink-soft); font-size: 0.76rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+.fas-detail dd { margin: 0.2rem 0 0; }
+.fas-verified { background: var(--fas-moss-tint); border-left: 4px solid var(--fas-moss); border-radius: 8px; color: var(--fas-moss-deep); font-weight: 600; padding: 0.7rem 0.9rem; }
+.fas-confirmed { color: var(--fas-ink-soft); }
+.fas-source { color: var(--fas-ink-soft); font-size: 0.9rem; overflow-wrap: anywhere; }
+.fas-claim-row { margin-top: 1.5rem; }
+.fas-claim-cta { border: 1.5px solid var(--fas-moss); border-radius: 999px; color: var(--fas-moss-deep); display: inline-block; font-weight: 700; padding: 0.55rem 1.15rem; text-decoration: none; }
+.fas-claim-cta:hover { background: var(--fas-moss); color: #fff; }
+
+/* Fluent Forms, matched to the system */
+.fluentform .ff-el-form-label { color: var(--fas-ink); font-weight: 600; }
+.fluentform .ff-el-form-control { background: #fff; border: 1px solid var(--fas-line); border-radius: 10px; color: var(--fas-ink); font-size: 1rem; line-height: 1.45; padding: 0.65rem 0.8rem; }
+.fluentform .ff-el-form-control:focus { border-color: var(--fas-moss); box-shadow: 0 0 0 3px var(--fas-moss-tint); outline: none; }
+.fluentform .ff-el-form-description { color: var(--fas-ink-soft); }
+.fluentform input[type="checkbox"], .fluentform input[type="radio"] { accent-color: var(--fas-moss); }
+.fluentform .ff-btn-submit { background: var(--fas-moss); border: 0; border-radius: 999px; color: #fff; cursor: pointer; font-size: 1rem; font-weight: 700; padding: 0.75rem 1.6rem; }
+.fluentform .ff-btn-submit:hover { background: var(--fas-moss-deep); }
+.fluentform .ff-el-section-break hr { border-color: var(--fas-line); }
+
+@media (max-width: 640px) {
+  .fas-hero { padding: 2rem 0; }
+  .fas-filter { align-items: stretch; flex-direction: column; }
+  .fas-filter-field { flex-basis: auto; }
+  .fas-results { grid-template-columns: 1fr; }
+  .fas-cta { padding: 1.25rem; }
+}
