@@ -197,7 +197,7 @@ def settings(message, require_login=False, login_msg=""):
 register_fields = [
     html_el("<p>A free account lets you submit a sangha and claim listings. We never sell your information, and your email is never displayed publicly.</p>"),
     text("first_name", "First name", required=True),
-    text("last_name", "Last name", required=True),
+    text("last_name", "Last name or initial (optional)", required=False),
     email("email", "Email address", required=True),
     text("username", "Username (optional)", help_msg="Leave blank and we will make one from your email address."),
     text("password", "Password", required=True, ftype="password",

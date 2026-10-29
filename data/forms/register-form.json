@@ -1,340 +1,340 @@
 {
-  "key": "register",
-  "title": "FaS Create Account",
-  "form_fields": {
-    "fields": [
-      {
-        "index": 0,
-        "element": "custom_html",
-        "attributes": [],
-        "settings": {
-          "html_codes": "<p>A free account lets you submit a sangha and claim listings. We never sell your information, and your email is never displayed publicly.</p>",
-          "conditional_logics": [],
-          "container_class": ""
-        },
-        "editor_options": {
-          "title": "Custom HTML",
-          "icon_class": "ff-edit-html",
-          "template": "customHTML"
-        },
-        "uniqElKey": "el_fas_001"
-      },
-      {
-        "index": 1,
-        "element": "input_text",
-        "attributes": {
-          "type": "text",
-          "name": "first_name",
-          "value": "",
-          "id": "",
-          "class": "",
-          "placeholder": ""
-        },
-        "settings": {
-          "container_class": "",
-          "label": "First name",
-          "label_placement": "",
-          "admin_field_label": "First name",
-          "help_message": "",
-          "validation_rules": {
-            "required": {
-              "value": true,
-              "message": "This field is required",
-              "global_message": "This field is required",
-              "global": true
-            }
-          },
-          "conditional_logics": []
-        },
-        "editor_options": {
-          "title": "Simple Text",
-          "icon_class": "ff-edit-text",
-          "template": "inputText"
-        },
-        "uniqElKey": "el_fas_002"
-      },
-      {
-        "index": 2,
-        "element": "input_text",
-        "attributes": {
-          "type": "text",
-          "name": "last_name",
-          "value": "",
-          "id": "",
-          "class": "",
-          "placeholder": ""
-        },
-        "settings": {
-          "container_class": "",
-          "label": "Last name",
-          "label_placement": "",
-          "admin_field_label": "Last name",
-          "help_message": "",
-          "validation_rules": {
-            "required": {
-              "value": true,
-              "message": "This field is required",
-              "global_message": "This field is required",
-              "global": true
-            }
-          },
-          "conditional_logics": []
-        },
-        "editor_options": {
-          "title": "Simple Text",
-          "icon_class": "ff-edit-text",
-          "template": "inputText"
-        },
-        "uniqElKey": "el_fas_003"
-      },
-      {
-        "index": 3,
-        "element": "input_email",
-        "attributes": {
-          "type": "email",
-          "name": "email",
-          "value": "",
-          "id": "",
-          "class": "",
-          "placeholder": ""
-        },
-        "settings": {
-          "container_class": "",
-          "label": "Email address",
-          "label_placement": "",
-          "help_message": "",
-          "admin_field_label": "Email address",
-          "validation_rules": {
-            "required": {
-              "value": true,
-              "message": "This field is required",
-              "global_message": "This field is required",
-              "global": true
-            },
-            "email": {
-              "value": true,
-              "message": "This field must contain a valid email",
-              "global_message": "This field must contain a valid email",
-              "global": true
-            }
-          },
-          "conditional_logics": []
-        },
-        "editor_options": {
-          "title": "Email Address",
-          "icon_class": "ff-edit-email",
-          "template": "inputText"
-        },
-        "uniqElKey": "el_fas_004"
-      },
-      {
-        "index": 4,
-        "element": "input_text",
-        "attributes": {
-          "type": "text",
-          "name": "username",
-          "value": "",
-          "id": "",
-          "class": "",
-          "placeholder": ""
-        },
-        "settings": {
-          "container_class": "",
-          "label": "Username (optional)",
-          "label_placement": "",
-          "admin_field_label": "Username (optional)",
-          "help_message": "Leave blank and we will make one from your email address.",
-          "validation_rules": {
-            "required": {
-              "value": false,
-              "message": "This field is required",
-              "global_message": "This field is required",
-              "global": true
-            }
-          },
-          "conditional_logics": []
-        },
-        "editor_options": {
-          "title": "Simple Text",
-          "icon_class": "ff-edit-text",
-          "template": "inputText"
-        },
-        "uniqElKey": "el_fas_005"
-      },
-      {
-        "index": 5,
-        "element": "input_text",
-        "attributes": {
-          "type": "password",
-          "name": "password",
-          "value": "",
-          "id": "",
-          "class": "",
-          "placeholder": ""
-        },
-        "settings": {
-          "container_class": "",
-          "label": "Password",
-          "label_placement": "",
-          "admin_field_label": "Password",
-          "help_message": "At least 8 characters.",
-          "validation_rules": {
-            "required": {
-              "value": true,
-              "message": "This field is required",
-              "global_message": "This field is required",
-              "global": true
-            }
-          },
-          "conditional_logics": []
-        },
-        "editor_options": {
-          "title": "Simple Text",
-          "icon_class": "ff-edit-text",
-          "template": "inputText"
-        },
-        "uniqElKey": "el_fas_006"
-      },
-      {
-        "index": 6,
-        "element": "input_checkbox",
-        "attributes": {
-          "type": "checkbox",
-          "name": "newsletter_optin",
-          "value": []
-        },
-        "settings": {
-          "dynamic_default_value": "",
-          "container_class": "",
-          "label": "",
-          "admin_field_label": "Newsletter opt-in",
-          "label_placement": "",
-          "display_type": "",
-          "help_message": "",
-          "advanced_options": [
-            {
-              "label": "Email me occasional Find a Sangha updates. (Optional. This is the only marketing email we send, and you can unsubscribe any time.)",
-              "value": "yes",
-              "calc_value": "",
-              "image": ""
-            }
-          ],
-          "calc_value_status": false,
-          "enable_image_input": false,
-          "values_visible": false,
-          "randomize_options": "no",
-          "enable_other_option": "no",
-          "other_option_label": "Other",
-          "other_option_placeholder": "Please specify...",
-          "other_option_required_message": "Please specify a value for the selected \"Other\" option",
-          "validation_rules": {
-            "required": {
-              "value": false,
-              "message": "This field is required",
-              "global_message": "This field is required",
-              "global": true
-            },
-            "max_selection": {
-              "value": "",
-              "message": "Maximum selection exceeds",
-              "global_message": "Maximum selection exceeds",
-              "global": true
-            },
-            "min_selection": {
-              "value": "",
-              "message": "Minimum selection is required",
-              "global_message": "Minimum selection is required",
-              "global": true
-            }
-          },
-          "conditional_logics": [],
-          "layout_class": ""
-        },
-        "editor_options": {
-          "title": "Checkbox",
-          "icon_class": "ff-edit-checkbox-1",
-          "template": "inputCheckable"
-        },
-        "uniqElKey": "el_fas_007"
+ "key": "register",
+ "title": "FaS Create Account",
+ "form_fields": {
+  "fields": [
+   {
+    "index": 0,
+    "element": "custom_html",
+    "attributes": [],
+    "settings": {
+     "html_codes": "<p>A free account lets you submit a sangha and claim listings. We never sell your information, and your email is never displayed publicly.</p>",
+     "conditional_logics": [],
+     "container_class": ""
+    },
+    "editor_options": {
+     "title": "Custom HTML",
+     "icon_class": "ff-edit-html",
+     "template": "customHTML"
+    },
+    "uniqElKey": "el_fas_001"
+   },
+   {
+    "index": 1,
+    "element": "input_text",
+    "attributes": {
+     "type": "text",
+     "name": "first_name",
+     "value": "",
+     "id": "",
+     "class": "",
+     "placeholder": ""
+    },
+    "settings": {
+     "container_class": "",
+     "label": "First name",
+     "label_placement": "",
+     "admin_field_label": "First name",
+     "help_message": "",
+     "validation_rules": {
+      "required": {
+       "value": true,
+       "message": "This field is required",
+       "global_message": "This field is required",
+       "global": true
       }
-    ],
-    "submitButton": {
-      "uniqElKey": "el_1524065200616",
-      "element": "button",
-      "attributes": {
-        "type": "submit",
-        "class": ""
-      },
-      "settings": {
-        "align": "left",
-        "button_style": "default",
-        "container_class": "",
-        "help_message": "",
-        "background_color": "#1a7efb",
-        "button_size": "md",
-        "color": "#ffffff",
-        "button_ui": {
-          "type": "default",
-          "text": "Create account",
-          "img_url": ""
-        }
-      },
-      "editor_options": {
-        "title": "Submit Button"
+     },
+     "conditional_logics": []
+    },
+    "editor_options": {
+     "title": "Simple Text",
+     "icon_class": "ff-edit-text",
+     "template": "inputText"
+    },
+    "uniqElKey": "el_fas_002"
+   },
+   {
+    "index": 2,
+    "element": "input_text",
+    "attributes": {
+     "type": "text",
+     "name": "last_name",
+     "value": "",
+     "id": "",
+     "class": "",
+     "placeholder": ""
+    },
+    "settings": {
+     "container_class": "",
+     "label": "Last name or initial (optional)",
+     "label_placement": "",
+     "admin_field_label": "Last name",
+     "help_message": "",
+     "validation_rules": {
+      "required": {
+       "value": false,
+       "message": "This field is required",
+       "global_message": "This field is required",
+       "global": true
       }
+     },
+     "conditional_logics": []
+    },
+    "editor_options": {
+     "title": "Simple Text",
+     "icon_class": "ff-edit-text",
+     "template": "inputText"
+    },
+    "uniqElKey": "el_fas_003"
+   },
+   {
+    "index": 3,
+    "element": "input_email",
+    "attributes": {
+     "type": "email",
+     "name": "email",
+     "value": "",
+     "id": "",
+     "class": "",
+     "placeholder": ""
+    },
+    "settings": {
+     "container_class": "",
+     "label": "Email address",
+     "label_placement": "",
+     "help_message": "",
+     "admin_field_label": "Email address",
+     "validation_rules": {
+      "required": {
+       "value": true,
+       "message": "This field is required",
+       "global_message": "This field is required",
+       "global": true
+      },
+      "email": {
+       "value": true,
+       "message": "This field must contain a valid email",
+       "global_message": "This field must contain a valid email",
+       "global": true
+      }
+     },
+     "conditional_logics": []
+    },
+    "editor_options": {
+     "title": "Email Address",
+     "icon_class": "ff-edit-email",
+     "template": "inputText"
+    },
+    "uniqElKey": "el_fas_004"
+   },
+   {
+    "index": 4,
+    "element": "input_text",
+    "attributes": {
+     "type": "text",
+     "name": "username",
+     "value": "",
+     "id": "",
+     "class": "",
+     "placeholder": ""
+    },
+    "settings": {
+     "container_class": "",
+     "label": "Username (optional)",
+     "label_placement": "",
+     "admin_field_label": "Username (optional)",
+     "help_message": "Leave blank and we will make one from your email address.",
+     "validation_rules": {
+      "required": {
+       "value": false,
+       "message": "This field is required",
+       "global_message": "This field is required",
+       "global": true
+      }
+     },
+     "conditional_logics": []
+    },
+    "editor_options": {
+     "title": "Simple Text",
+     "icon_class": "ff-edit-text",
+     "template": "inputText"
+    },
+    "uniqElKey": "el_fas_005"
+   },
+   {
+    "index": 5,
+    "element": "input_text",
+    "attributes": {
+     "type": "password",
+     "name": "password",
+     "value": "",
+     "id": "",
+     "class": "",
+     "placeholder": ""
+    },
+    "settings": {
+     "container_class": "",
+     "label": "Password",
+     "label_placement": "",
+     "admin_field_label": "Password",
+     "help_message": "At least 8 characters.",
+     "validation_rules": {
+      "required": {
+       "value": true,
+       "message": "This field is required",
+       "global_message": "This field is required",
+       "global": true
+      }
+     },
+     "conditional_logics": []
+    },
+    "editor_options": {
+     "title": "Simple Text",
+     "icon_class": "ff-edit-text",
+     "template": "inputText"
+    },
+    "uniqElKey": "el_fas_006"
+   },
+   {
+    "index": 6,
+    "element": "input_checkbox",
+    "attributes": {
+     "type": "checkbox",
+     "name": "newsletter_optin",
+     "value": []
+    },
+    "settings": {
+     "dynamic_default_value": "",
+     "container_class": "",
+     "label": "",
+     "admin_field_label": "Newsletter opt-in",
+     "label_placement": "",
+     "display_type": "",
+     "help_message": "",
+     "advanced_options": [
+      {
+       "label": "Email me occasional Find a Sangha updates. (Optional. This is the only marketing email we send, and you can unsubscribe any time.)",
+       "value": "yes",
+       "calc_value": "",
+       "image": ""
+      }
+     ],
+     "calc_value_status": false,
+     "enable_image_input": false,
+     "values_visible": false,
+     "randomize_options": "no",
+     "enable_other_option": "no",
+     "other_option_label": "Other",
+     "other_option_placeholder": "Please specify...",
+     "other_option_required_message": "Please specify a value for the selected \"Other\" option",
+     "validation_rules": {
+      "required": {
+       "value": false,
+       "message": "This field is required",
+       "global_message": "This field is required",
+       "global": true
+      },
+      "max_selection": {
+       "value": "",
+       "message": "Maximum selection exceeds",
+       "global_message": "Maximum selection exceeds",
+       "global": true
+      },
+      "min_selection": {
+       "value": "",
+       "message": "Minimum selection is required",
+       "global_message": "Minimum selection is required",
+       "global": true
+      }
+     },
+     "conditional_logics": [],
+     "layout_class": ""
+    },
+    "editor_options": {
+     "title": "Checkbox",
+     "icon_class": "ff-edit-checkbox-1",
+     "template": "inputCheckable"
+    },
+    "uniqElKey": "el_fas_007"
+   }
+  ],
+  "submitButton": {
+   "uniqElKey": "el_1524065200616",
+   "element": "button",
+   "attributes": {
+    "type": "submit",
+    "class": ""
+   },
+   "settings": {
+    "align": "left",
+    "button_style": "default",
+    "container_class": "",
+    "help_message": "",
+    "background_color": "#1a7efb",
+    "button_size": "md",
+    "color": "#ffffff",
+    "button_ui": {
+     "type": "default",
+     "text": "Create account",
+     "img_url": ""
     }
-  },
-  "formSettings": {
-    "confirmation": {
-      "redirectTo": "samePage",
-      "messageToShow": "Welcome. Your account is ready and you are signed in. Next step: submit your sangha from the Add Your Sangha page.",
-      "customPage": null,
-      "samePageFormBehavior": "hide_form",
-      "customUrl": null
-    },
-    "restrictions": {
-      "limitNumberOfEntries": {
-        "enabled": false,
-        "numberOfEntries": null,
-        "period": "total",
-        "limitReachedMsg": "Maximum number of entries exceeded."
-      },
-      "scheduleForm": {
-        "enabled": false,
-        "start": null,
-        "end": null,
-        "selectedDays": [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday",
-          "Sunday"
-        ],
-        "pendingMsg": "Form submission is not started yet.",
-        "expiredMsg": "Form submission is now closed."
-      },
-      "requireLogin": {
-        "enabled": false,
-        "requireLoginMsg": ""
-      },
-      "denyEmptySubmission": {
-        "enabled": false,
-        "message": "Sorry, you cannot submit an empty form."
-      }
-    },
-    "layout": {
-      "labelPlacement": "top",
-      "helpMessagePlacement": "with_label",
-      "errorMessagePlacement": "inline",
-      "asteriskPlacement": "asterisk-right"
-    },
-    "delete_entry_on_submission": "no",
-    "appendSurveyResult": {
-      "enabled": false,
-      "showLabel": false,
-      "showCount": false
-    }
+   },
+   "editor_options": {
+    "title": "Submit Button"
+   }
   }
+ },
+ "formSettings": {
+  "confirmation": {
+   "redirectTo": "samePage",
+   "messageToShow": "Welcome. Your account is ready and you are signed in. Next step: submit your sangha from the Add Your Sangha page.",
+   "customPage": null,
+   "samePageFormBehavior": "hide_form",
+   "customUrl": null
+  },
+  "restrictions": {
+   "limitNumberOfEntries": {
+    "enabled": false,
+    "numberOfEntries": null,
+    "period": "total",
+    "limitReachedMsg": "Maximum number of entries exceeded."
+   },
+   "scheduleForm": {
+    "enabled": false,
+    "start": null,
+    "end": null,
+    "selectedDays": [
+     "Monday",
+     "Tuesday",
+     "Wednesday",
+     "Thursday",
+     "Friday",
+     "Saturday",
+     "Sunday"
+    ],
+    "pendingMsg": "Form submission is not started yet.",
+    "expiredMsg": "Form submission is now closed."
+   },
+   "requireLogin": {
+    "enabled": false,
+    "requireLoginMsg": ""
+   },
+   "denyEmptySubmission": {
+    "enabled": false,
+    "message": "Sorry, you cannot submit an empty form."
+   }
+  },
+  "layout": {
+   "labelPlacement": "top",
+   "helpMessagePlacement": "with_label",
+   "errorMessagePlacement": "inline",
+   "asteriskPlacement": "asterisk-right"
+  },
+  "delete_entry_on_submission": "no",
+  "appendSurveyResult": {
+   "enabled": false,
+   "showLabel": false,
+   "showCount": false
+  }
+ }
 }

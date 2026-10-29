@@ -1,4 +1,4 @@
-<!-- wp:group {"align":"full","className":"fas-hero","layout":{"type":"constrained"}} -->
+<!-- wp:group {"align":"full","className":"fas-hero","layout":{"type":"constrained","contentSize":"1160px"}} -->
 <div class="wp-block-group alignfull fas-hero">
   <!-- wp:heading {"level":1} -->
   <h1 class="wp-block-heading">Find a sangha, wherever you practice.</h1>
@@ -13,8 +13,8 @@
 </div>
 <!-- /wp:group -->
 
-<!-- wp:group {"className":"fas-home-section","layout":{"type":"constrained"}} -->
-<div class="wp-block-group fas-home-section">
+<!-- wp:group {"align":"wide","className":"fas-home-section","layout":{"type":"constrained","contentSize":"1160px"}} -->
+<div class="wp-block-group alignwide fas-home-section">
   <!-- wp:heading -->
   <h2 class="wp-block-heading">Checked by hand, kept honest</h2>
   <!-- /wp:heading -->
@@ -58,12 +58,15 @@
 </div>
 <!-- /wp:group -->
 
-<!-- wp:group {"className":"fas-home-section","layout":{"type":"constrained"}} -->
-<div class="wp-block-group fas-home-section">
+<!-- wp:group {"align":"wide","className":"fas-home-section","layout":{"type":"constrained","contentSize":"1160px"}} -->
+<div class="wp-block-group alignwide fas-home-section">
   <!-- wp:heading -->
-  <h2 class="wp-block-heading">Newest in the directory</h2>
+  <h2 class="wp-block-heading">Recently confirmed</h2>
   <!-- /wp:heading -->
-  <!-- wp:shortcode -->[fas_results limit="6"]<!-- /wp:shortcode -->
+  <!-- wp:paragraph {"className":"fas-count-line"} -->
+  <p class="fas-count-line">[fas_listing_count] sanghas listed so far. Every card shows the date its details were last confirmed.</p>
+  <!-- /wp:paragraph -->
+  <!-- wp:shortcode -->[fas_results limit="6" orderby="confirmed"]<!-- /wp:shortcode -->
   <!-- wp:buttons -->
   <div class="wp-block-buttons">
     <!-- wp:button -->
@@ -74,8 +77,8 @@
 </div>
 <!-- /wp:group -->
 
-<!-- wp:group {"className":"fas-cta","layout":{"type":"constrained"}} -->
-<div class="wp-block-group fas-cta">
+<!-- wp:group {"align":"wide","className":"fas-cta","layout":{"type":"constrained","contentSize":"1160px"}} -->
+<div class="wp-block-group alignwide fas-cta">
   <!-- wp:heading -->
   <h2 class="wp-block-heading">Is your sangha missing?</h2>
   <!-- /wp:heading -->

@@ -11,6 +11,7 @@ if (!defined('ABSPATH')) {
 function fas_filter_params() {
     return array(
         'keyword' => isset($_GET['f_keyword']) ? sanitize_text_field(wp_unslash($_GET['f_keyword'])) : '',
+        'location' => isset($_GET['f_location']) ? sanitize_text_field(wp_unslash($_GET['f_location'])) : '',
         'tradition' => isset($_GET['f_tradition']) ? sanitize_text_field(wp_unslash($_GET['f_tradition'])) : '',
         'format' => isset($_GET['f_format']) ? sanitize_text_field(wp_unslash($_GET['f_format'])) : '',
         'language' => isset($_GET['f_language']) ? sanitize_text_field(wp_unslash($_GET['f_language'])) : '',
@@ -41,6 +42,53 @@ function fas_tax_query_from_params($p) {
     return $tax_query;
 }
 
+// Location search: free text matched against the city and address meta, and
+// against region and country term names. Returns listing IDs (possibly empty).
+function fas_location_post_ids($loc) {
+    $ids = array();
+    $meta_q = new WP_Query(array(
+        'post_type' => 'sangha_listing',
+        'post_status' => 'publish',
+        'posts_per_page' => -1,
+        'fields' => 'ids',
+        'meta_query' => array(
+            'relation' => 'OR',
+            array('key' => 'city', 'value' => $loc, 'compare' => 'LIKE'),
+            array('key' => 'meeting_address', 'value' => $loc, 'compare' => 'LIKE'),
+        ),
+    ));
+    $ids = array_merge($ids, $meta_q->posts);
+    foreach (array('region', 'country') as $taxonomy) {
+        $terms = get_terms(array('taxonomy' => $taxonomy, 'hide_empty' => false, 'name__like' => $loc));
+        if (is_wp_error($terms) || !$terms) {
+            continue;
+        }
+        $tax_q = new WP_Query(array(
+            'post_type' => 'sangha_listing',
+            'post_status' => 'publish',
+            'posts_per_page' => -1,
+            'fields' => 'ids',
+            'tax_query' => array(array(
+                'taxonomy' => $taxonomy,
+                'field' => 'term_id',
+                'terms' => wp_list_pluck($terms, 'term_id'),
+            )),
+        ));
+        $ids = array_merge($ids, $tax_q->posts);
+    }
+    return array_values(array_unique(array_map('intval', $ids)));
+}
+
+// Restrict a query (WP_Query args array or WP_Query object setter) to the
+// listings matching the location parameter. Empty array means "no matches".
+function fas_location_ids_for_params($p) {
+    if ($p['location'] === '') {
+        return null;
+    }
+    $ids = fas_location_post_ids($p['location']);
+    return $ids ? $ids : array(0);
+}
+
 // Archive filtering: the /sanghas/ archive honors the same filter form.
 add_action('pre_get_posts', function ($query) {
     if (is_admin() || !$query->is_main_query() || !$query->is_post_type_archive('sangha_listing')) {
@@ -49,6 +97,10 @@ add_action('pre_get_posts', function ($query) {
     $p = fas_filter_params();
     if ($p['keyword'] !== '') {
         $query->set('s', $p['keyword']);
+    }
+    $loc_ids = fas_location_ids_for_params($p);
+    if ($loc_ids !== null) {
+        $query->set('post__in', $loc_ids);
     }
     $tax_query = fas_tax_query_from_params($p);
     if (!empty($tax_query)) {
@@ -99,8 +151,20 @@ function fas_card_html($post_id) {
         $html .= '<p class="fas-card-location">' . esc_html($loc) . '</p>';
     }
     $html .= fas_chips($post_id, array('tradition', 'format'));
+    $confirmed = get_post_meta($post_id, 'last_confirmed_date', true);
+    if ($confirmed) {
+        $ts = strtotime($confirmed);
+        $label = $ts ? date_i18n('F j, Y', $ts) : $confirmed;
+        $html .= '<p class="fas-card-confirmed">Last confirmed ' . esc_html($label) . '</p>';
+    }
     return $html;
 }
+
+// Published listing count, for the home page trust copy.
+add_shortcode('fas_listing_count', function () {
+    $counts = wp_count_posts('sangha_listing');
+    return $counts ? (string) intval($counts->publish) : '0';
+});
 add_shortcode('fas_card_meta', function () {
     global $post;
     return $post ? fas_card_html($post->ID) : '';
@@ -188,11 +252,11 @@ add_shortcode('fas_filter_form', function ($atts) {
         return $html . '</select></label>';
     };
     $html = '<form class="fas-filter" method="get" action="' . esc_url($action) . '" role="search">';
-    $html .= '<label class="fas-filter-field fas-filter-keyword"><span>Keyword</span><input type="search" name="f_keyword" value="' . esc_attr($p['keyword']) . '" placeholder="Name, city, teacher..."></label>';
+    $html .= '<label class="fas-filter-field fas-filter-keyword"><span>Keyword</span><input type="search" name="f_keyword" value="' . esc_attr($p['keyword']) . '" placeholder="Name or teacher..."></label>';
+    $html .= '<label class="fas-filter-field fas-filter-location"><span>Location</span><input type="search" name="f_location" value="' . esc_attr($p['location']) . '" placeholder="City, state, or country"></label>';
     $html .= $select('f_tradition', 'tradition', 'Tradition');
     $html .= $select('f_format', 'format', 'Format');
     $html .= $select('f_language', 'language', 'Language');
-    $html .= $select('f_country', 'country', 'Country');
     $html .= '<button type="submit" class="fas-filter-submit">Search sanghas</button>';
     if (array_filter($p)) {
         $html .= '<a class="fas-filter-clear" href="' . esc_url($action) . '">Clear filters</a>';
@@ -205,19 +269,24 @@ add_shortcode('fas_filter_form', function ($atts) {
 // (The archive uses this instead of a query loop: a shortcode inside a block
 // query loop does not receive each iteration's post, so card meta went stale.)
 add_shortcode('fas_results', function ($atts) {
-    $atts = shortcode_atts(array('limit' => 0), is_array($atts) ? $atts : array());
+    $atts = shortcode_atts(array('limit' => 0, 'orderby' => ''), is_array($atts) ? $atts : array());
     $limit = max(0, intval($atts['limit']));
+    $by_confirmed = $atts['orderby'] === 'confirmed';
     $p = fas_filter_params();
     $on_archive = is_post_type_archive('sangha_listing');
     $page = $on_archive ? max(1, intval(get_query_var('paged'))) : (isset($_GET['fpage']) ? max(1, intval($_GET['fpage'])) : 1);
     $args = array(
         'post_type' => 'sangha_listing',
         'post_status' => 'publish',
-        'posts_per_page' => $limit > 0 ? $limit : 20,
+        'posts_per_page' => $by_confirmed ? -1 : ($limit > 0 ? $limit : 20),
         'paged' => $limit > 0 ? 1 : $page,
     );
     if ($p['keyword'] !== '') {
         $args['s'] = $p['keyword'];
+    }
+    $loc_ids = fas_location_ids_for_params($p);
+    if ($loc_ids !== null) {
+        $args['post__in'] = $loc_ids;
     }
     $tax_query = fas_tax_query_from_params($p);
     if (!empty($tax_query)) {
@@ -228,6 +297,21 @@ add_shortcode('fas_results', function ($atts) {
         wp_reset_postdata();
         $online = get_post_type_archive_link('sangha_listing') . '?f_format=online';
         return '<div class="fas-no-results"><p>No sanghas match those filters yet.</p><p>Try <a href="' . esc_url($online) . '">online sanghas</a>, or <a href="' . esc_url(home_url('/add-your-sangha/')) . '">add this sangha</a> if you know one that belongs here.</p></div>';
+    }
+    if ($by_confirmed) {
+        // Sort the fetched posts by last confirmed date (newest first, undated
+        // last) and let the normal query loop walk them in that order.
+        // Note: iterate with $q->the_post(); a bare setup_postdata() loop does
+        // not populate the globals reliably on this install (verified 2026-10-26).
+        usort($q->posts, function ($a, $b) {
+            $da = get_post_meta($a->ID, 'last_confirmed_date', true) ?: '';
+            $db = get_post_meta($b->ID, 'last_confirmed_date', true) ?: '';
+            return strcmp((string) $db, (string) $da);
+        });
+        if ($limit > 0) {
+            $q->posts = array_slice($q->posts, 0, $limit);
+            $q->post_count = count($q->posts);
+        }
     }
     $html = '<div class="fas-results">';
     while ($q->have_posts()) {
@@ -241,7 +325,7 @@ add_shortcode('fas_results', function ($atts) {
     $total = $q->max_num_pages;
     if ($total > 1 && $limit === 0) {
         $filter_args = array_filter(array(
-            'f_keyword' => $p['keyword'], 'f_tradition' => $p['tradition'], 'f_format' => $p['format'],
+            'f_keyword' => $p['keyword'], 'f_location' => $p['location'], 'f_tradition' => $p['tradition'], 'f_format' => $p['format'],
             'f_language' => $p['language'], 'f_country' => $p['country']));
         $html .= '<nav class="fas-pagination">';
         for ($i = 1; $i <= $total; $i++) {

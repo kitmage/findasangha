@@ -4,7 +4,7 @@ Theme URI: https://findasangha.com
 Description: Child theme for Find a Sangha. Presentation only; all directory data and logic live in the fas-directory plugin.
 Author: Find a Sangha
 Template: twentytwentyfive
-Version: 0.2.1
+Version: 0.2.7
 License: GPL-2.0-or-later
 Text Domain: fas-child
 */
@@ -33,7 +33,7 @@ Text Domain: fas-child
 .fas-site-header { border-bottom: 1px solid var(--fas-line); padding: 0.9rem 0; }
 .fas-wordmark { display: inline-flex; align-items: center; gap: 0.55rem; color: var(--fas-ink); text-decoration: none; font-family: var(--fas-serif); font-size: 1.45rem; font-weight: 600; letter-spacing: 0.01em; }
 .fas-wordmark:hover { color: var(--fas-moss-deep); }
-.fas-wordmark svg { flex: none; display: block; }
+.fas-wordmark svg, .fas-wordmark img { flex: none; display: block; }
 .fas-main-nav .wp-block-navigation-item__content { text-decoration: none; }
 .fas-main-nav .wp-block-navigation-item__content:hover { color: var(--fas-moss-deep); text-decoration: underline; text-underline-offset: 0.25em; }
 
@@ -46,9 +46,10 @@ Text Domain: fas-child
 .fas-footer-fine { font-size: 0.85rem; margin-bottom: 0; }
 
 /* Home hero */
-.fas-hero { background: var(--fas-paper-deep); border-bottom: 1px solid var(--fas-line); padding: 3rem 0 2.75rem; }
-.fas-hero h1 { max-width: 15ch; margin-top: 0; }
-.fas-lede { font-size: 1.15rem; color: var(--fas-ink-soft); max-width: 44rem; }
+.fas-hero { background: var(--fas-paper-deep); border-bottom: 1px solid var(--fas-line); padding: 3rem var(--wp--preset--spacing--50, 1.25rem) 2.75rem; }
+.fas-hero h1 { max-width: 21ch; margin-top: 0; }
+.fas-lede { font-size: 1.15rem; color: var(--fas-ink-soft); max-width: 46rem; }
+.fas-count-line { color: var(--fas-ink-soft); margin: 0 0 0.5rem; }
 .fas-quick-links { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.25rem 0 0; }
 .fas-quick-links a { background: var(--fas-paper); border: 1px solid var(--fas-line); border-radius: 999px; color: var(--fas-ink); font-size: 0.9rem; font-weight: 600; padding: 0.35rem 0.85rem; text-decoration: none; }
 .fas-quick-links a:hover { background: var(--fas-moss-tint); border-color: var(--fas-moss); color: var(--fas-moss-deep); }
@@ -57,12 +58,19 @@ Text Domain: fas-child
 .fas-cta h2 { margin-top: 0; }
 
 /* Filter form: the search panel */
-.fas-filter { display: flex; flex-wrap: wrap; gap: 0.8rem; align-items: end; background: #fff; border: 1px solid var(--fas-line); border-radius: 16px; box-shadow: 0 1px 2px rgba(46, 42, 35, 0.05), 0 10px 28px -20px rgba(46, 42, 35, 0.35); margin: 1.25rem 0; padding: 1.1rem; }
+/* Width, not margin, insets the form horizontally: the hero group's block
+   layout forces margin-left/right: auto !important on its direct children,
+   which silently overrides side margins (found 2026-10-26 after Mike cleared
+   Breeze and Object Cache and the margin change still did not show). With a
+   width under 100%, the forced auto margins center the form and leave the
+   gutter on both sides. */
+.fas-filter { display: flex; flex-wrap: wrap; gap: 0.8rem; align-items: end; background: #fff; border: 1px solid var(--fas-line); border-radius: 16px; box-shadow: 0 1px 2px rgba(46, 42, 35, 0.05), 0 10px 28px -20px rgba(46, 42, 35, 0.35); margin: 2rem auto 1.75rem; padding: 1.1rem; width: calc(100% - 2.5rem); }
 .fas-filter-field { display: flex; flex-direction: column; gap: 0.3rem; flex: 1 1 132px; font-size: 0.95rem; }
 .fas-filter-field > span { color: var(--fas-ink-soft); font-size: 0.76rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
 .fas-filter-field select, .fas-filter-field input { background: #fff; border: 1px solid var(--fas-line); border-radius: 10px; color: var(--fas-ink); font: inherit; min-height: 44px; padding: 0.55rem 0.7rem; width: 100%; }
 .fas-filter-field select:focus, .fas-filter-field input:focus { border-color: var(--fas-moss); outline: 2px solid var(--fas-moss-tint); outline-offset: 0; }
 .fas-filter-keyword { flex: 1 1 210px; }
+.fas-filter-location { flex: 1 1 190px; }
 .fas-filter-submit { background: var(--fas-moss); border: 0; border-radius: 999px; color: #fff; cursor: pointer; font: inherit; font-weight: 700; min-height: 44px; padding: 0.65rem 1.35rem; }
 .fas-filter-submit:hover { background: var(--fas-moss-deep); }
 .fas-filter-clear { align-self: center; font-size: 0.9rem; }
@@ -76,6 +84,7 @@ Text Domain: fas-child
 .fas-card-title a:hover { color: var(--fas-moss-deep); text-decoration: underline; text-underline-offset: 0.2em; }
 .fas-card-location { color: var(--fas-ink-soft); font-size: 0.95rem; font-weight: 600; margin: 0.1rem 0 0; }
 .fas-card-excerpt { color: var(--fas-ink-soft); margin: 0.45rem 0 0; }
+.fas-card-confirmed { color: var(--fas-ink-soft); font-size: 0.85rem; font-weight: 600; margin: 0.6rem 0 0; }
 .fas-chips { display: flex; flex-wrap: wrap; gap: 0.35rem; margin: 0.55rem 0 0; }
 .fas-chip { background: var(--fas-sand); border-radius: 999px; color: var(--fas-ink-soft); font-size: 0.78rem; font-weight: 600; padding: 0.15rem 0.6rem; }
 .fas-chip-format { background: var(--fas-moss-tint); color: var(--fas-moss-deep); }
@@ -115,7 +124,7 @@ Text Domain: fas-child
 .fluentform .ff-el-section-break hr { border-color: var(--fas-line); }
 
 @media (max-width: 640px) {
-  .fas-hero { padding: 2rem 0; }
+  .fas-hero { padding-block: 2rem; }
   .fas-filter { align-items: stretch; flex-direction: column; }
   .fas-filter-field { flex-basis: auto; }
   .fas-results { grid-template-columns: 1fr; }
